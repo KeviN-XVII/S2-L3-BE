@@ -6,6 +6,7 @@ import entities.Product;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -49,7 +50,7 @@ public class Main {
         carrelloKevin.add(products.get(6));
         carrelloKevin.add(products.get(8));
 
-        orders.add(new Order("Pagato",LocalDate.of(2023, 7, 17),carrelloKevin,customers.get(1)));
+        orders.add(new Order("Pagato",LocalDate.of(2023, 7, 17),carrelloUmberto,customers.get(1)));
 
 
         System.out.println("---------Customers");
@@ -69,9 +70,12 @@ public class Main {
 
         //        Esercizio 2
         System.out.println("---------------------ESERCIZIO 2-----------------");
-        List<Order>listaBaby = products.stream()
-                .filter(order->order.)
+      List<Order> ordersContainingBaby = orders.stream()
+                .filter(order ->
+                        order.getProducts().stream()
+                                .anyMatch(product -> Objects.equals(product.getCategory(), "Baby")))
                 .toList();
+        ordersContainingBaby.forEach(order -> System.out.println(order));
 
 
 
