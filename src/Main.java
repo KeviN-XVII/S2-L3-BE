@@ -22,10 +22,6 @@ public class Main {
         customers.add(new Customer("Gianni"));
         customers.add(new Customer("Fabio"));
 
-        ArrayList<Product> carrelloKevin = new ArrayList();
-        carrelloKevin.add(products.get(1));
-        carrelloKevin.add(products.get(3));
-        carrelloKevin.add(products.get(5));
 
         products.add(new Product("Ps5","Boys"));
         products.add(new Product("Ciuccio","Baby"));
@@ -38,7 +34,22 @@ public class Main {
         products.add(new Product("Passeggino Chicco", "Baby"));
         products.add(new Product("Harry Potter", "Books"));
 
-        orders.add(new Order("Pagato",LocalDate.of(2021, 3, 5),carrelloKevin,customers.get(1)));
+//        ORDINE N1
+        ArrayList<Product> carrelloKevin = new ArrayList();
+        carrelloKevin.add(products.get(1));
+        carrelloKevin.add(products.get(3));
+        carrelloKevin.add(products.get(5));
+
+        orders.add(new Order("Pagato",LocalDate.of(2021, 3, 5),carrelloKevin,customers.get(0)));
+
+        //        ORDINE 2
+        ArrayList<Product> carrelloUmberto = new ArrayList();
+        carrelloKevin.add(products.get(2));
+        carrelloKevin.add(products.get(4));
+        carrelloKevin.add(products.get(6));
+        carrelloKevin.add(products.get(8));
+
+        orders.add(new Order("Pagato",LocalDate.of(2023, 7, 17),carrelloKevin,customers.get(1)));
 
 
         System.out.println("---------Customers");
@@ -58,6 +69,9 @@ public class Main {
 
         //        Esercizio 2
         System.out.println("---------------------ESERCIZIO 2-----------------");
+        List<Order>listaBaby = products.stream()
+                .filter(order->order.)
+                .toList();
 
 
 
