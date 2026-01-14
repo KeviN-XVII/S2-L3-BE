@@ -1,15 +1,83 @@
+import com.github.javafaker.Faker;
+import entities.Customer;
+import entities.Order;
+import entities.Product;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        ArrayList<Customer> customers = new ArrayList<>();
+        ArrayList<Product> products = new ArrayList<>();
+        ArrayList<Order> orders = new ArrayList<>();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        customers.add(new Customer("Kevin"));
+        customers.add(new Customer("Umberto"));
+        customers.add(new Customer("Daniele"));
+        customers.add(new Customer("Marco"));
+        customers.add(new Customer("Gianni"));
+        customers.add(new Customer("Fabio"));
+
+        ArrayList<Product> carrelloKevin = new ArrayList();
+        carrelloKevin.add(products.get(1));
+        carrelloKevin.add(products.get(3));
+        carrelloKevin.add(products.get(5));
+
+        products.add(new Product("Ps5","Boys"));
+        products.add(new Product("Ciuccio","Baby"));
+        products.add(new Product("Il vaggio di nessuno","Books"));
+        products.add(new Product("Come perdere al Fantacalcio","Books"));
+        products.add(new Product("Culla","Baby"));
+        products.add(new Product("Televisione","Boys"));
+        products.add(new Product("Lego Star Wars", "Boys"));
+        products.add(new Product("Libro delle fiabe", "Books"));
+        products.add(new Product("Passeggino Chicco", "Baby"));
+        products.add(new Product("Harry Potter", "Books"));
+
+        orders.add(new Order("Pagato",LocalDate.of(2021, 3, 5),carrelloKevin,customers.get(1)));
+
+
+        System.out.println("---------Customers");
+        System.out.println(customers);
+        System.out.println("---------Products");
+        System.out.println(products);
+        System.out.println("---------Orders");
+        System.out.println(orders);
+
+//        Esercizio 1
+        System.out.println("---------------------ESERCIZIO 1-----------------");
+        List<Product> listaBooks = products.stream()
+                .filter(category->category.getCategory().equals("Books"))
+                .filter(price->price.getPrice() > 100).toList();
+        System.out.println(listaBooks);
+
+
+        //        Esercizio 2
+        System.out.println("---------------------ESERCIZIO 2-----------------");
+
+
+
+//        Esercizio 3
+        System.out.println("---------------------ESERCIZIO 3-----------------");
+        List<Product> listaBoys = products.stream()
+                .filter(category->category.getCategory().equals("Boys"))
+                .toList();
+        listaBoys.forEach(price -> price.setPrice(price.getPrice()*0.9));
+        System.out.println(listaBoys);
+
+
+//        Esercizio 4
+        System.out.println("---------------------ESERCIZIO 4-----------------");
+
+
+
+
+
+
+
     }
 }
